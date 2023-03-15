@@ -6,12 +6,12 @@ from selenium.webdriver.support.wait import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
 import time
 
-PATH = "C:\Program Files (x86)\chromedriver.exe"
+#PATH = "C:\Program Files (x86)\chromedriver.exe"
 
 class ElgigantenTest(unittest.TestCase):
     
     def setUp(self):
-        self.driver = webdriver.Chrome(PATH)
+        self.driver = webdriver.Chrome("C:\Program Files (x86)\chromedriver.exe")
         self.driver.get("https://www.elgiganten.se/")
         self.driver.maximize_window()
     
