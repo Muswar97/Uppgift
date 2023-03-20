@@ -100,3 +100,8 @@ class ElgigantenTest(unittest.TestCase):
         self.assertEqual(price2,p_expected2)
         time.sleep(2)
 
+    def tearDown(self):
+        self.driver.delete_all_cookies()
+        self.driver.close()
+        
+
