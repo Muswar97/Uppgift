@@ -3,7 +3,7 @@ pipeline {
     stages {
         stage('Testing GitHub-tests locally') {
             steps {
-                dir('C:\Users\Musta\Skrivbord\Uppgift'){ 
+                dir('C:/Users/Musta/Skrivbord/Uppgift'){ 
                     bat 'python -m unittest'
                 }
             }
