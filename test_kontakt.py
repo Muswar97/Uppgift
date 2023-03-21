@@ -65,7 +65,7 @@ class ElgigantenTest(unittest.TestCase):
         self.driver.find_element(By.CSS_SELECTOR,"#main > ng-component > div > elk-component-loader-wrapper > elk-cms-template-component-list > div > elk-cms-shell.content-divider.content-divider__default.cms-indentation__default-bottom.cms-indentation__category-carousel--small.ng-star-inserted > elk-category-collection > nav > ul > li:nth-child(3) > a > elk-cms-img > picture > img").click()
         #self.driver.execute_script("scrollBy(0,800)")
         actual = self.driver.find_element(By.CSS_SELECTOR,"#products > elk-component-loader-wrapper > elk-product-and-content-listing-view > div.product-list__products.ng-star-inserted > elk-product-tile-ff-wc-wrapper:nth-child(1) > elk-product-tile > div > div.product-tile__information.information > elk-price > span > span").text
-        expected = "49.-"
+        expected = "4990.-"
         self.assertEqual(actual,expected)
         self.driver.find_element(By.CSS_SELECTOR,"#sorting").click()
         self.driver.find_element(By.CSS_SELECTOR,"#sorting > option:nth-child(3)").click()
