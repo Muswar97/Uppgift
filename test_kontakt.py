@@ -50,13 +50,13 @@ class ElgigantenTest(unittest.TestCase):
         search = self.driver.find_element(By.CSS_SELECTOR,"#query-header")
         search.send_keys("Elden Ring")
         search.send_keys(Keys.RETURN)
-        self.driver.find_element(By.CSS_SELECTOR,"#products > elk-component-loader-wrapper > elk-product-and-content-listing-view > div.product-list__products.ng-star-inserted > elk-product-tile-ff-wc-wrapper:nth-child(1) > elk-product-tile > div > a").click()
+        self.driver.find_element(By.CSS_SELECTOR,"#products > elk-component-loader-wrapper > elk-product-and-content-listing-view > div.product-list__products.ng-star-inserted > elk-product-tile-ff-wc-wrapper:nth-child(3) > elk-product-tile > div > a").click()
         self.driver.find_element(By.CSS_SELECTOR,"#buy-box > elk-buy-box-delivery-tabs > elk-tab-group > div > div.tab-group__content > elk-buy-box-home-delivery-tab > elk-tab > div > elk-add-to-cart > button").click()
         btn = WebDriverWait(self.driver,1000).until(
-           EC.presence_of_element_located((By.XPATH,"/html/body/div[7]/div[2]/div/mat-dialog-container/ng-component/div[4]/button[1]/span"))
+           EC.presence_of_element_located((By.XPATH,"/html/body/div[8]/div[2]/div/mat-dialog-container/ng-component/div[4]/button[1]"))
         )
         btn.click()
-        expected_element = self.driver.find_element(By.CSS_SELECTOR,"#main > div.l-constraint.l-constraint--50 > main > elk-checkout-main > div > div.checkout-main__order-summary-wrapper > elk-order-summary > div > div.order-summary__products.ng-star-inserted > elk-order-summary-product > elk-product-item > div.ng-star-inserted > a > div > div.product-item__info > div.product-item__title").text
+        expected_element = self.driver.find_element(By.CSS_SELECTOR,"#main > div:nth-child(2) > main > elk-checkout-main > div > div.checkout-main__order-summary-wrapper > elk-order-summary > div > div.order-summary__products.ng-star-inserted > elk-order-summary-product > elk-product-item > div.ng-star-inserted > a > div > div.product-item__info > div.product-item__title").text
         expected_title = "Elden Ring (PS4) inkl. PS5-version"
         self.assertEqual(expected_element,expected_title)
         
@@ -65,7 +65,7 @@ class ElgigantenTest(unittest.TestCase):
         self.driver.find_element(By.CSS_SELECTOR,"#main > ng-component > div > elk-component-loader-wrapper > elk-cms-template-component-list > div > elk-cms-shell.content-divider.content-divider__default.cms-indentation__default-bottom.cms-indentation__category-carousel--small.ng-star-inserted > elk-category-collection > nav > ul > li:nth-child(3) > a > elk-cms-img > picture > img").click()
         #self.driver.execute_script("scrollBy(0,800)")
         actual = self.driver.find_element(By.CSS_SELECTOR,"#products > elk-component-loader-wrapper > elk-product-and-content-listing-view > div.product-list__products.ng-star-inserted > elk-product-tile-ff-wc-wrapper:nth-child(1) > elk-product-tile > div > div.product-tile__information.information > elk-price > span > span").text
-        expected = "4990.-"
+        expected = "7890.-"
         self.assertEqual(actual,expected)
         self.driver.find_element(By.CSS_SELECTOR,"#sorting").click()
         self.driver.find_element(By.CSS_SELECTOR,"#sorting > option:nth-child(3)").click()
@@ -79,18 +79,19 @@ class ElgigantenTest(unittest.TestCase):
         search1.send_keys("Playstation 5")
         search1.send_keys(Keys.RETURN)
         #time.sleep(10)
-        self.driver.find_element(By.CSS_SELECTOR,"#products > elk-component-loader-wrapper > elk-product-and-content-listing-view > div.product-list__products.ng-star-inserted > elk-product-tile-ff-wc-wrapper:nth-child(2) > elk-product-tile > div > div.lift-above-gradient.product-tile__actions.ng-star-inserted > elk-product-actions > div > div > span").click()
+        self.driver.find_element(By.CSS_SELECTOR,"#products > elk-component-loader-wrapper > elk-product-and-content-listing-view > div.product-list__products.ng-star-inserted > elk-product-tile-ff-wc-wrapper:nth-child(1) > elk-product-tile > div > div.lift-above-gradient.product-tile__actions.ng-star-inserted > elk-product-actions > div > div > div").click()
         self.driver.find_element(By.CSS_SELECTOR,"#query-header").clear()
         search2 = self.driver.find_element(By.CSS_SELECTOR,"#query-header")
         search2.send_keys("Xbox Series S")
         search2.send_keys(Keys.RETURN)
         self.driver.find_element(By.CSS_SELECTOR,"#products > elk-component-loader-wrapper > elk-product-and-content-listing-view > div.product-list__products.ng-star-inserted > elk-product-tile-ff-wc-wrapper:nth-child(1) > elk-product-tile > div > div.lift-above-gradient.product-tile__actions.ng-star-inserted > elk-product-actions > div > div > div").click()
         self.driver.find_element(By.XPATH,"/html/body/elk-app/ng-component/elk-base-template/mat-sidenav-container/mat-sidenav-content/div[2]/elk-component-loader-wrapper/elk-compare-banner/elk-desktop-compare-banner/div/button").click()
-        name1 = self.driver.find_element(By.XPATH,"/html/body/div[7]/div[2]/div/mat-dialog-container/elk-compare-overlay/div/div/div/elk-compare-scroller-group/div[1]/elk-compare-header/div/div/elk-compare-scroller/div/div/div/div[3]").text
+        time.sleep(1)
+        name1 = self.driver.find_element(By.XPATH,"/html/body/div[8]/div[2]/div/mat-dialog-container/elk-compare-overlay/div/div/div/elk-compare-scroller-group/div[1]/elk-compare-header/div/div/elk-compare-scroller/div/div/div/div[3]").text
         n_expected1 = "PlayStation 5 (2022)"
         self.assertEqual(name1,n_expected1)
-        price1 = self.driver.find_element(By.XPATH,"/html/body/div[7]/div[2]/div/mat-dialog-container/elk-compare-overlay/div/div/div/elk-compare-scroller-group/div[1]/elk-compare-header/div/div/elk-compare-scroller/div/div/div/div[4]/elk-price/span/span").text
-        p_expected1 = "6990.-"
+        price1 = self.driver.find_element(By.XPATH,"/html/body/div[8]/div[2]/div/mat-dialog-container/elk-compare-overlay/div/div/div/elk-compare-scroller-group/div[1]/elk-compare-header/div/div/elk-compare-scroller/div/div/div/div[4]/elk-price/span/span").text
+        p_expected1 = "6949.-"
         self.assertEqual(price1,p_expected1)
         name2 = self.driver.find_element(By.XPATH,"/html/body/div[7]/div[2]/div/mat-dialog-container/elk-compare-overlay/div/div/div/elk-compare-scroller-group/div[1]/elk-compare-header/div/div/elk-compare-scroller/div/div/div/div[8]").text
         n_expected2 = "Xbox Series S 512GB (vit)"
@@ -98,7 +99,6 @@ class ElgigantenTest(unittest.TestCase):
         price2 = self.driver.find_element(By.XPATH,"/html/body/div[7]/div[2]/div/mat-dialog-container/elk-compare-overlay/div/div/div/elk-compare-scroller-group/div[1]/elk-compare-header/div/div/elk-compare-scroller/div/div/div/div[9]/elk-price/span/span").text
         p_expected2 = "3895.-"
         self.assertEqual(price2,p_expected2)
-        time.sleep(2)
 
     def tearDown(self):
         self.driver.delete_all_cookies()
